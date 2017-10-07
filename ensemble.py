@@ -4,11 +4,11 @@ prediction1.rename(index = str, columns = {"prediction" : "prediction_1"}, inpla
 prediction2 = pd.read_pickle("data/prediction_lgbm_2_1.pkl")
 prediction2.rename(index = str, columns = {"prediction" : "prediction_2"}, inplace = True)
 
-#prediction3 = pd.read_pickle("data/prediction_lgbm_5_1.pkl")
-#prediction3.rename(index = str, columns = {"prediction" : "prediction_3"}, inplace = True)
+prediction3 = pd.read_pickle("data/prediction_lgbm_5_1.pkl")
+prediction3.rename(index = str, columns = {"prediction" : "prediction_3"}, inplace = True)
 
 prediction_mean = prediction1.merge(prediction2, on = ['order_id', 'product_id'], how = 'left')
-#prediction_mean = prediction_mean.merge(prediction3, on = ['order_id', 'product_id'], how = 'left')
+prediction_mean = prediction_mean.merge(prediction3, on = ['order_id', 'product_id'], how = 'left')
 
 prediction_median = prediction_mean.copy()
 prediction_log = prediction_mean.copy()
