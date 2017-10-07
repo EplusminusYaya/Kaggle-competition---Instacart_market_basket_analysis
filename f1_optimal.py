@@ -131,7 +131,7 @@ def applyParallel(dfGrouped, func):
     return pd.concat(retLst)
 
 if __name__ == '__main__':
-   data = pd.read_pickle("data/ensemble_median_4.pkl")
+   data = pd.read_pickle("data/ensemble_median_1.pkl")
 #   data = pd.read_pickle("data/arboretum-network.pkl")
    data = applyParallel(data.groupby(data.order_id), create_products).reset_index()
    data[['order_id', 'products']].to_csv('data/f1_optimal_2/ensemble/sub_median_4.csv', index=False)
